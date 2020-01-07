@@ -59,5 +59,6 @@ Install On Ubuntu 18.04
         -p $SSPORT \
         -k $SSPASSWORD
         
-  ## Windows 
-  -https://github.com/shadowsocks/shadowsocks-windows/releases
+  ## Shadowsocks Windows Client
+  
+    https://github.com/shadowsocks/shadowsocks-windows/releases
