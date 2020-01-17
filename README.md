@@ -16,48 +16,8 @@ For more command line options, refer to the [shadowsocks documentation](https://
 
 Install On Ubuntu 18.04
 -----------
-
-
-    export SSPORT=[your shadowsocks port]
-    export SSPASSWORD=[your shadowsocks password]
-
-    # Install docker prerequisites
-    sudo apt update
-    sudo apt install apt-transport-https ca-certificates
-    sudo apt install linux-image-extra-$(uname -r) linux-image-extra-virtual
-
-    # Add docker GPG key
-    sudo apt-key adv \
-        --keyserver hkp://ha.pool.sks-keyservers.net:80 \
-        --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-
-    # Add docker apt repository
-    echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
-
-    # Install the docker engine
-    sudo apt update
-    sudo apt install docker-engine
-
-    # Make sure docker service is running
-    sudo service docker status
-    sudo service docker start
-
-    # Test docker installation
-    sudo docker run hello-world
-
-    # Install the shadowsocks docker image
-    sudo docker pull oddrationale/docker-shadowsocks
-
-    sudo docker run -d \
-        --name shadowsocks \
-        --restart=always \
-        -p $SSPORT:$SSPORT \
-        oddrationale/docker-shadowsocks \
-        -qq \
-        -m aes-256-cfb \
-        -s 0.0.0.0 \
-        -p $SSPORT \
-        -k $SSPASSWORD
+    
+    curl https://raw.githubusercontent.com/xyz71148/utils/master/shell/docker-ss-server-xx.sh | bash -s SSPORT SSPASSWORD
         
   ## Shadowsocks Windows Client
   
